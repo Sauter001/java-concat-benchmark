@@ -404,24 +404,22 @@ public class JanggiConcatBenchmark {
                 border, "");
     }
 
-    // (5) String.format: 좌표 헤더까지 format으로, + 없이
+    // (5) String.format: 행 조합까지 전부 format으로 처리 (StringBuilder 없음)
+    // 각 행을 String.format으로 만든 뒤, 행들을 %s%n%s%n... 패턴의 단일 format 호출로 결합
     @Benchmark
-    public String composeBoardWithFormatExtreme() {
+    public String composeBoardWithFormatPure() {
         Map<Position, Piece> boardMap = board.board();
         String border = BoardFormatter.formatHorizon(Board.BOARD_COL);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(System.lineSeparator());
-        sb.append(String.format("%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+        String colHeader = String.format("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
                 SPACE, SPACE, SPACE,
                 SPACE, COL_NUM[0], SPACE, COL_NUM[1], SPACE, COL_NUM[2],
-                SPACE, COL_NUM[3], SPACE, COL_NUM[4], SPACE, COL_NUM[5]));
-        sb.append(String.format("%s%s%s%s%s%s%s",
-                SPACE, COL_NUM[6], SPACE, COL_NUM[7], SPACE, COL_NUM[8],
-                System.lineSeparator()));
-        sb.append(border).append(System.lineSeparator());
+                SPACE, COL_NUM[3], SPACE, COL_NUM[4], SPACE, COL_NUM[5],
+                SPACE, COL_NUM[6], SPACE, COL_NUM[7], SPACE, COL_NUM[8]);
+
+        String[] rows = new String[Board.BOARD_ROW];
         for (int row = 0; row < Board.BOARD_ROW; row++) {
-            sb.append(String.format("%s %s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+            rows[row] = String.format("%s %s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
                     ROW_NUM[row], VERTICAL_LINE,
                     SPACE, formatSymbol(boardMap.get(new Position(row, 0))),
                     SPACE, formatSymbol(boardMap.get(new Position(row, 1))),
@@ -432,9 +430,13 @@ public class JanggiConcatBenchmark {
                     SPACE, formatSymbol(boardMap.get(new Position(row, 6))),
                     SPACE, formatSymbol(boardMap.get(new Position(row, 7))),
                     SPACE, formatSymbol(boardMap.get(new Position(row, 8))),
-                    SPACE, VERTICAL_LINE, System.lineSeparator()));
+                    SPACE, VERTICAL_LINE);
         }
-        sb.append(border).append(System.lineSeparator());
-        return sb.toString();
+
+        return String.format("%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n",
+                colHeader, border,
+                rows[0], rows[1], rows[2], rows[3], rows[4],
+                rows[5], rows[6], rows[7], rows[8], rows[9],
+                border);
     }
 }

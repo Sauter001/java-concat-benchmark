@@ -44,3 +44,6 @@ bin/
 
 ### idea ###
 .idea
+
+# 개인
+memo/

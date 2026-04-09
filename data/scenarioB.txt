@@ -1,0 +1,39 @@
+# Scenario B — AverageTime (ms/op, ↓ 낮을수록 좋음)
+# JDK: Eclipse Adoptium 21.0.6 | Fork: 3 | Warmup: 5×1s | Measurement: 5×1s | Cnt: 15
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiNotationBenchmark] fullNotation — AverageTime (ms/op)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Score (ms/op)
+Benchmark                   n=10    n=50    n=100   n=200
+──────────────────────────────────────────────────────────
+fullNotation_plus           0.001   0.009   0.045   0.117
+fullNotation_builder        0.001   0.005   0.010   0.020
+fullNotation_builderSized   0.001   0.005   0.011   0.024
+fullNotation_format         0.008   0.045   0.086   0.173
+fullNotation_formatted      0.010   0.044   0.083   0.185
+fullNotation_formatPure     0.008   0.044   0.103   0.278
+fullNotation_formattedPure  0.008   0.048   0.108   0.258
+
+alloc/op (B)
+Benchmark                   n=10     n=50     n=100      n=200
+───────────────────────────────────────────────────────────────
+fullNotation_plus            4,368   79,648    304,248  1,198,648
+fullNotation_builder         1,856   12,288     24,416     48,864
+fullNotation_builderSized    2,448   11,768     23,408     46,904
+fullNotation_format         20,064   98,664    196,408    395,672
+fullNotation_formatted      19,904   99,064    197,208    397,272
+fullNotation_formatPure     20,544  161,104    468,104  1,526,072
+fullNotation_formattedPure  20,544  161,904    467,304  1,526,072
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiNotationBenchmark] singleNotation — AverageTime (ms/op, moveCount 무관)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Benchmark               Score (대표값)   alloc/op
+──────────────────────────────────────────────────
+singleNotation_plus       ≈ 10⁻⁴          88 B
+singleNotation_builder    ≈ 10⁻⁴         280 B
+singleNotation_format     ≈ 10⁻³       1,120 B
+singleNotation_formatted  ≈ 10⁻³       1,120 B

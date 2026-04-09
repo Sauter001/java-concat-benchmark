@@ -1,0 +1,69 @@
+# Scenario A — Throughput (ops/ms) + AverageTime (ms/op)
+# JDK: Eclipse Adoptium 21.0.6 | Fork: 3 | Warmup: 5×1s | Measurement: 5×1s | Cnt: 15
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiConcatBenchmark] 10×9 보드 렌더링 — Throughput (ops/ms, ↑ 높을수록 좋음)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Benchmark                               Score      Error    alloc/op
+────────────────────────────────────────────────────────────────────
+composeBoardWithStringBuilder           182.680  ±33.861    9,200 B
+composeBoardWithPlusRowUnit             137.470  ±28.777   14,320 B
+composeBoardWithStringJoinExtreme       112.926  ±20.359   10,400 B
+composeBoardWithPlusDoubleLoop          110.888  ±20.193   80,792 B
+composeBoardWithFormatPure               52.795  ± 4.336   32,160 B
+
+  [참고] 루프 없이 전체 unroll
+  composeBoardWithStringBuilderSingleExpression   120.528  ±15.022   11,168 B
+  composeBoardWithPlusSingleExpression             49.236  ±11.618    7,936 B
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiConcatBenchmark] 10×9 보드 렌더링 — AverageTime (ms/op, ↓ 낮을수록 좋음)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Benchmark                               Score    Error    alloc/op
+──────────────────────────────────────────────────────────────────
+composeBoardWithStringBuilder           0.006  ±0.001     9,200 B
+composeBoardWithPlusRowUnit             0.008  ±0.001    14,320 B
+composeBoardWithStringBuilderSingleExpression   0.009  ±0.001    11,168 B
+composeBoardWithStringJoinExtreme       0.009  ±0.001    10,480 B
+composeBoardWithPlusDoubleLoop          0.011  ±0.002    80,792 B
+composeBoardWithFormatPure              0.020  ±0.001    32,160 B
+composeBoardWithPlusSingleExpression    0.022  ±0.003     7,936 B
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiNotationBenchmark] fullNotation — Throughput (ops/ms, ↑ 높을수록 좋음)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Score (ops/ms)
+Benchmark                  n=10       n=50     n=100     n=200
+───────────────────────────────────────────────────────────────
+fullNotation_plus         1141.620   122.332    33.051     8.398
+fullNotation_builder       959.269   192.137   124.038    54.473
+fullNotation_builderSized  971.496   194.298    96.714    47.970
+fullNotation_format        120.981    23.589    11.361     5.507
+fullNotation_formatted     109.765    23.455    12.049     6.057
+fullNotation_formatPure    120.414    20.709    10.377     3.691
+fullNotation_formattedPure 131.956    21.211    10.413     4.022
+
+alloc/op (B)
+Benchmark                  n=10       n=50      n=100       n=200
+──────────────────────────────────────────────────────────────────
+fullNotation_plus           4,368     79,648    304,248   1,198,648
+fullNotation_builder        1,856     12,288     24,416      48,864
+fullNotation_builderSized   2,448     11,768     23,408      46,904
+fullNotation_format        20,064     98,264    198,008     395,672
+fullNotation_formatted     20,064     99,064    198,008     398,872
+fullNotation_formatPure    20,544    161,504    467,304   1,529,272
+fullNotation_formattedPure 20,544    161,104    467,304   1,529,272
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[JanggiNotationBenchmark] singleNotation — Throughput (ops/ms, moveCount 무관)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Benchmark               Score (대표값)   alloc/op
+──────────────────────────────────────────────────
+singleNotation_plus       ~26,000         88 B
+singleNotation_builder     ~9,000        280 B
+singleNotation_format      ~2,000      1,120 B
+singleNotation_formatted   ~1,950      1,120 B

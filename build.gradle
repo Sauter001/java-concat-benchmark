@@ -4,7 +4,7 @@ plugins {
 }
 
 jmh {
-    includes = ['JanggiConcatBenchmark']
+    includes = ['benchmark\\.Janggi*']
     profilers = ['gc']
 }
 
