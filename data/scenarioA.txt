@@ -1,69 +1,93 @@
-# Scenario A — Throughput (ops/ms) + AverageTime (ms/op)
-# JDK: Eclipse Adoptium 21.0.6 | Fork: 3 | Warmup: 5×1s | Measurement: 5×1s | Cnt: 15
+========================================================================================================================
+Throughput
+========================================================================================================================
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiConcatBenchmark] 10×9 보드 렌더링 — Throughput (ops/ms, ↑ 높을수록 좋음)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Benchmark                                                                                (moveCount)   Mode  Cnt        Score      Error   Units
 
-Benchmark                               Score      Error    alloc/op
-────────────────────────────────────────────────────────────────────
-composeBoardWithStringBuilder           182.680  ±33.861    9,200 B
-composeBoardWithPlusRowUnit             137.470  ±28.777   14,320 B
-composeBoardWithStringJoinExtreme       112.926  ±20.359   10,400 B
-composeBoardWithPlusDoubleLoop          110.888  ±20.193   80,792 B
-composeBoardWithFormatPure               52.795  ± 4.336   32,160 B
+JanggiConcatBenchmark.composeBoardWithFormatPure                                                 N/A  thrpt   15       46.667 ±    7.123  ops/ms
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.alloc.rate                                  N/A  thrpt   15     1331.664 ±  203.273  MB/sec
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.alloc.rate.norm                             N/A  thrpt   15    29928.010 ±    0.007    B/op
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.count                                       N/A  thrpt   15       67.000             counts
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.time                                        N/A  thrpt   15       62.000                 ms
 
-  [참고] 루프 없이 전체 unroll
-  composeBoardWithStringBuilderSingleExpression   120.528  ±15.022   11,168 B
-  composeBoardWithPlusSingleExpression             49.236  ±11.618    7,936 B
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop                                             N/A  thrpt   15      111.169 ±    5.585  ops/ms
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.alloc.rate                              N/A  thrpt   15     8563.535 ±  430.440  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.alloc.rate.norm                         N/A  thrpt   15    80792.004 ±    0.002    B/op
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.count                                   N/A  thrpt   15      201.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.time                                    N/A  thrpt   15      211.000                 ms
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiConcatBenchmark] 10×9 보드 렌더링 — AverageTime (ms/op, ↓ 낮을수록 좋음)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit                                                N/A  thrpt   15      138.419 ±   11.711  ops/ms
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.alloc.rate                                 N/A  thrpt   15     1889.864 ±  159.876  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.alloc.rate.norm                            N/A  thrpt   15    14320.003 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.count                                      N/A  thrpt   15       96.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.time                                       N/A  thrpt   15       93.000                 ms
 
-Benchmark                               Score    Error    alloc/op
-──────────────────────────────────────────────────────────────────
-composeBoardWithStringBuilder           0.006  ±0.001     9,200 B
-composeBoardWithPlusRowUnit             0.008  ±0.001    14,320 B
-composeBoardWithStringBuilderSingleExpression   0.009  ±0.001    11,168 B
-composeBoardWithStringJoinExtreme       0.009  ±0.001    10,480 B
-composeBoardWithPlusDoubleLoop          0.011  ±0.002    80,792 B
-composeBoardWithFormatPure              0.020  ±0.001    32,160 B
-composeBoardWithPlusSingleExpression    0.022  ±0.003     7,936 B
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression                                       N/A  thrpt   15       51.679 ±    3.726  ops/ms
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.alloc.rate                        N/A  thrpt   15      391.040 ±   28.195  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.alloc.rate.norm                   N/A  thrpt   15     7936.008 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.count                             N/A  thrpt   15       18.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.time                              N/A  thrpt   15       20.000                 ms
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiNotationBenchmark] fullNotation — Throughput (ops/ms, ↑ 높을수록 좋음)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JanggiConcatBenchmark.composeBoardWithStringBuilder                                              N/A  thrpt   15      163.486 ±   14.980  ops/ms
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.alloc.rate                               N/A  thrpt   15     1434.044 ±  131.414  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.alloc.rate.norm                          N/A  thrpt   15     9200.003 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.count                                    N/A  thrpt   15       72.000             counts
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.time                                     N/A  thrpt   15       68.000                 ms
 
-Score (ops/ms)
-Benchmark                  n=10       n=50     n=100     n=200
-───────────────────────────────────────────────────────────────
-fullNotation_plus         1141.620   122.332    33.051     8.398
-fullNotation_builder       959.269   192.137   124.038    54.473
-fullNotation_builderSized  971.496   194.298    96.714    47.970
-fullNotation_format        120.981    23.589    11.361     5.507
-fullNotation_formatted     109.765    23.455    12.049     6.057
-fullNotation_formatPure    120.414    20.709    10.377     3.691
-fullNotation_formattedPure 131.956    21.211    10.413     4.022
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression                              N/A  thrpt   15      117.626 ±    7.001  ops/ms
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.alloc.rate               N/A  thrpt   15     1252.529 ±   74.540  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.alloc.rate.norm          N/A  thrpt   15    11168.003 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.count                    N/A  thrpt   15       62.000             counts
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.time                     N/A  thrpt   15       64.000                 ms
 
-alloc/op (B)
-Benchmark                  n=10       n=50      n=100       n=200
-──────────────────────────────────────────────────────────────────
-fullNotation_plus           4,368     79,648    304,248   1,198,648
-fullNotation_builder        1,856     12,288     24,416      48,864
-fullNotation_builderSized   2,448     11,768     23,408      46,904
-fullNotation_format        20,064     98,264    198,008     395,672
-fullNotation_formatted     20,064     99,064    198,008     398,872
-fullNotation_formatPure    20,544    161,504    467,304   1,529,272
-fullNotation_formattedPure 20,544    161,104    467,304   1,529,272
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme                                          N/A  thrpt   15      116.937 ±    4.935  ops/ms
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.alloc.rate                           N/A  thrpt   15     1168.467 ±   49.309  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.alloc.rate.norm                      N/A  thrpt   15    10480.003 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.count                                N/A  thrpt   15       59.000             counts
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.time                                 N/A  thrpt   15       57.000                 ms
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiNotationBenchmark] singleNotation — Throughput (ops/ms, moveCount 무관)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+========================================================================================================================
+Average Time
+========================================================================================================================
 
-Benchmark               Score (대표값)   alloc/op
-──────────────────────────────────────────────────
-singleNotation_plus       ~26,000         88 B
-singleNotation_builder     ~9,000        280 B
-singleNotation_format      ~2,000      1,120 B
-singleNotation_formatted   ~1,950      1,120 B
+JanggiConcatBenchmark.composeBoardWithFormatPure                                                 N/A   avgt   15        0.023 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.alloc.rate                                  N/A   avgt   15     1236.410 ±   60.540  MB/sec
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.alloc.rate.norm                             N/A   avgt   15    30256.012 ±  137.716    B/op
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.count                                       N/A   avgt   15       63.000             counts
+JanggiConcatBenchmark.composeBoardWithFormatPure:·gc.time                                        N/A   avgt   15       63.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop                                             N/A   avgt   15        0.010 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.alloc.rate                              N/A   avgt   15     7403.101 ±  643.806  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.alloc.rate.norm                         N/A   avgt   15    80792.004 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.count                                   N/A   avgt   15      181.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusDoubleLoop:·gc.time                                    N/A   avgt   15      190.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit                                                N/A   avgt   15        0.008 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.alloc.rate                                 N/A   avgt   15     1712.783 ±   54.084  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.alloc.rate.norm                            N/A   avgt   15    14320.003 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.count                                      N/A   avgt   15       86.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusRowUnit:·gc.time                                       N/A   avgt   15       88.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression                                       N/A   avgt   15        0.024 ±    0.003   ms/op
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.alloc.rate                        N/A   avgt   15      320.056 ±   41.076  MB/sec
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.alloc.rate.norm                   N/A   avgt   15     7936.011 ±    0.006    B/op
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.count                             N/A   avgt   15       18.000             counts
+JanggiConcatBenchmark.composeBoardWithPlusSingleExpression:·gc.time                              N/A   avgt   15       21.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithStringBuilder                                              N/A   avgt   15        0.006 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.alloc.rate                               N/A   avgt   15     1374.839 ±   61.568  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.alloc.rate.norm                          N/A   avgt   15     9200.003 ±    0.002    B/op
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.count                                    N/A   avgt   15       69.000             counts
+JanggiConcatBenchmark.composeBoardWithStringBuilder:·gc.time                                     N/A   avgt   15       68.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression                              N/A   avgt   15        0.010 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.alloc.rate               N/A   avgt   15     1082.827 ±   70.810  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.alloc.rate.norm          N/A   avgt   15    11168.004 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.count                    N/A   avgt   15       55.000             counts
+JanggiConcatBenchmark.composeBoardWithStringBuilderSingleExpression:·gc.time                     N/A   avgt   15       59.000                 ms
+
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme                                          N/A   avgt   15        0.010 ±    0.001   ms/op
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.alloc.rate                           N/A   avgt   15      970.148 ±   61.669  MB/sec
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.alloc.rate.norm                      N/A   avgt   15    10240.004 ±    0.001    B/op
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.count                                N/A   avgt   15       49.000             counts
+JanggiConcatBenchmark.composeBoardWithStringJoinExtreme:·gc.time                                 N/A   avgt   15       48.000                 ms

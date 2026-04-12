@@ -1,39 +1,379 @@
-# Scenario B — AverageTime (ms/op, ↓ 낮을수록 좋음)
-# JDK: Eclipse Adoptium 21.0.6 | Fork: 3 | Warmup: 5×1s | Measurement: 5×1s | Cnt: 15
+========================================================================================================================
+Throughput
+========================================================================================================================
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiNotationBenchmark] fullNotation — AverageTime (ms/op)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JanggiNotationBenchmark.fullNotation_builder                                                      10  thrpt   15     1020.186 ±   40.429  ops/ms
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                       10  thrpt   15     1805.334 ±   71.518  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                  10  thrpt   15     1856.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                            10  thrpt   15       90.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                             10  thrpt   15       88.000                 ms
 
-Score (ms/op)
-Benchmark                   n=10    n=50    n=100   n=200
-──────────────────────────────────────────────────────────
-fullNotation_plus           0.001   0.009   0.045   0.117
-fullNotation_builder        0.001   0.005   0.010   0.020
-fullNotation_builderSized   0.001   0.005   0.011   0.024
-fullNotation_format         0.008   0.045   0.086   0.173
-fullNotation_formatted      0.010   0.044   0.083   0.185
-fullNotation_formatPure     0.008   0.044   0.103   0.278
-fullNotation_formattedPure  0.008   0.048   0.108   0.258
+JanggiNotationBenchmark.fullNotation_builder                                                      50  thrpt   15      209.028 ±   11.339  ops/ms
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                       50  thrpt   15     2449.005 ±  132.859  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                  50  thrpt   15    12288.002 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                            50  thrpt   15      124.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                             50  thrpt   15      121.000                 ms
 
-alloc/op (B)
-Benchmark                   n=10     n=50     n=100      n=200
-───────────────────────────────────────────────────────────────
-fullNotation_plus            4,368   79,648    304,248  1,198,648
-fullNotation_builder         1,856   12,288     24,416     48,864
-fullNotation_builderSized    2,448   11,768     23,408     46,904
-fullNotation_format         20,064   98,664    196,408    395,672
-fullNotation_formatted      19,904   99,064    197,208    397,272
-fullNotation_formatPure     20,544  161,104    468,104  1,526,072
-fullNotation_formattedPure  20,544  161,904    467,304  1,526,072
+JanggiNotationBenchmark.fullNotation_builder                                                     100  thrpt   15      106.917 ±    5.734  ops/ms
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                      100  thrpt   15     2488.770 ±  133.329  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                 100  thrpt   15    24416.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                           100  thrpt   15      118.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                            100  thrpt   15      117.000                 ms
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[JanggiNotationBenchmark] singleNotation — AverageTime (ms/op, moveCount 무관)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JanggiNotationBenchmark.fullNotation_builder                                                     200  thrpt   15       56.224 ±    7.247  ops/ms
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                      200  thrpt   15     2619.463 ±  337.654  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                 200  thrpt   15    48864.007 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                           200  thrpt   15      123.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                            200  thrpt   15      127.000                 ms
+-----------------------------------------------------------------------------------------------------------------------
+JanggiNotationBenchmark.fullNotation_builderSized                                                 10  thrpt   15     1011.151 ±   53.129  ops/ms
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                  10  thrpt   15     2360.064 ±  124.054  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                             10  thrpt   15     2448.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                       10  thrpt   15      119.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                        10  thrpt   15      118.000                 ms
 
-Benchmark               Score (대표값)   alloc/op
-──────────────────────────────────────────────────
-singleNotation_plus       ≈ 10⁻⁴          88 B
-singleNotation_builder    ≈ 10⁻⁴         280 B
-singleNotation_format     ≈ 10⁻³       1,120 B
-singleNotation_formatted  ≈ 10⁻³       1,120 B
+JanggiNotationBenchmark.fullNotation_builderSized                                                 50  thrpt   15      200.735 ±    9.879  ops/ms
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                  50  thrpt   15     2252.285 ±  110.811  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                             50  thrpt   15    11768.002 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                       50  thrpt   15      114.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                        50  thrpt   15      110.000                 ms
+
+JanggiNotationBenchmark.fullNotation_builderSized                                                100  thrpt   15      108.635 ±    6.586  ops/ms
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                 100  thrpt   15     2424.591 ±  146.950  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                            100  thrpt   15    23408.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                      100  thrpt   15      115.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                       100  thrpt   15      112.000                 ms
+
+JanggiNotationBenchmark.fullNotation_builderSized                                                200  thrpt   15       52.788 ±    2.779  ops/ms
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                 200  thrpt   15     2360.612 ±  124.294  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                            200  thrpt   15    46904.008 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                      200  thrpt   15      119.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                       200  thrpt   15      116.000                 ms
+-----------------------------------------------------------------------------------------------------------------------
+JanggiNotationBenchmark.fullNotation_format                                                       10  thrpt   15      120.198 ±   15.889  ops/ms
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                        10  thrpt   15     2301.543 ±  322.850  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                   10  thrpt   15    20064.003 ±  250.391    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                             10  thrpt   15      115.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                              10  thrpt   15      107.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                       50  thrpt   15       18.002 ±    2.806  ops/ms
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                        50  thrpt   15     1686.564 ±  262.848  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                   50  thrpt   15    98264.024 ±    0.004    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                             50  thrpt   15       85.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                              50  thrpt   15       92.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                      100  thrpt   15        9.268 ±    2.059  ops/ms
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                       100  thrpt   15     1743.582 ±  391.943  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                  100  thrpt   15   197208.047 ± 1251.951    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                            100  thrpt   15       88.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                             100  thrpt   15       91.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                      200  thrpt   15        5.496 ±    0.315  ops/ms
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                       200  thrpt   15     2081.049 ±  107.038  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                  200  thrpt   15   397272.074 ± 5007.825    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                            200  thrpt   15      106.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                             200  thrpt   15      108.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                    10  thrpt   15      111.234 ±    5.572  ops/ms
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                     10  thrpt   15     2127.620 ±  104.729  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                                10  thrpt   15    20064.004 ±  250.391    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                          10  thrpt   15      106.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                           10  thrpt   15      108.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                    50  thrpt   15       20.994 ±    2.894  ops/ms
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                     50  thrpt   15     1992.252 ±  284.851  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                                50  thrpt   15    99464.021 ± 1084.223    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                          50  thrpt   15      100.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                           50  thrpt   15       99.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                   100  thrpt   15       11.154 ±    0.578  ops/ms
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                    100  thrpt   15     2097.232 ±  108.850  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                               100  thrpt   15   197208.038 ± 1251.956    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                         100  thrpt   15      105.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                          100  thrpt   15      107.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                   200  thrpt   15        5.665 ±    0.220  ops/ms
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                    200  thrpt   15     2137.034 ±   77.181  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                               200  thrpt   15   395672.072 ± 2503.913    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                         200  thrpt   15      107.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                          200  thrpt   15      109.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                         10  thrpt   15     1014.934 ±  105.715  ops/ms
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                          10  thrpt   15     4226.714 ±  440.259  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                     10  thrpt   15     4368.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                               10  thrpt   15      132.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                                10  thrpt   15      140.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                         50  thrpt   15      110.688 ±   14.950  ops/ms
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                          50  thrpt   15     8405.533 ± 1135.494  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                     50  thrpt   15    79648.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                               50  thrpt   15      205.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                                50  thrpt   15      225.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                        100  thrpt   15       33.702 ±    1.910  ops/ms
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                         100  thrpt   15     9776.137 ±  554.334  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                    100  thrpt   15   304248.012 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                              100  thrpt   15      207.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                               100  thrpt   15      220.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                        200  thrpt   15        7.374 ±    1.479  ops/ms
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                         200  thrpt   15     8427.783 ± 1689.982  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                    200  thrpt   15  1198648.057 ±    0.016    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                              200  thrpt   15      181.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                               200  thrpt   15      209.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                    10  thrpt   15     7058.668 ± 1330.037  ops/ms
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                     10  thrpt   15     1884.407 ±  355.081  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                                10  thrpt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                          10  thrpt   15       96.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                           10  thrpt   15       84.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                    50  thrpt   15     8369.271 ±  341.077  ops/ms
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                     50  thrpt   15     2234.241 ±   91.066  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                                50  thrpt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                          50  thrpt   15      113.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                           50  thrpt   15      114.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                   100  thrpt   15     8388.788 ±  723.951  ops/ms
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                    100  thrpt   15     2239.487 ±  193.321  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                               100  thrpt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                         100  thrpt   15      114.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                          100  thrpt   15      111.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                   200  thrpt   15     8072.049 ±  827.879  ops/ms
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                    200  thrpt   15     2154.905 ±  221.023  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                               200  thrpt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                         200  thrpt   15      108.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                          200  thrpt   15      105.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                     10  thrpt   15     1649.608 ±  212.281  ops/ms
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                      10  thrpt   15     1761.530 ±  226.708  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                 10  thrpt   15     1120.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                           10  thrpt   15       89.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                            10  thrpt   15       86.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                     50  thrpt   15     1800.275 ±  159.770  ops/ms
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                      50  thrpt   15     1908.002 ±  161.325  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                 50  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                           50  thrpt   15       96.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                            50  thrpt   15       93.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                    100  thrpt   15     1801.012 ±  170.549  ops/ms
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                     100  thrpt   15     1895.035 ±  172.937  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                100  thrpt   15     1104.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                          100  thrpt   15       96.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                           100  thrpt   15       92.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                    200  thrpt   15     1757.473 ±  210.794  ops/ms
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                     200  thrpt   15     1861.993 ±  212.055  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                200  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                          200  thrpt   15       94.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                           200  thrpt   15       93.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                  10  thrpt   15     1766.187 ±  133.046  ops/ms
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                   10  thrpt   15     1872.862 ±  150.904  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                              10  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                        10  thrpt   15       93.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                         10  thrpt   15       91.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                  50  thrpt   15     1746.792 ±  164.138  ops/ms
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                   50  thrpt   15     1852.681 ±  185.606  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                              50  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                        50  thrpt   15       93.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                         50  thrpt   15       91.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                 100  thrpt   15     1855.244 ±  126.640  ops/ms
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                  100  thrpt   15     1966.142 ±  120.779  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                             100  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                       100  thrpt   15       98.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                        100  thrpt   15      100.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                 200  thrpt   15     1824.797 ±  163.856  ops/ms
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                  200  thrpt   15     1934.044 ±  166.823  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                             200  thrpt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                       200  thrpt   15       98.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                        200  thrpt   15       95.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                       10  thrpt   15    23883.405 ± 1984.875  ops/ms
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                        10  thrpt   15     2003.863 ±  166.543  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                   10  thrpt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                             10  thrpt   15      100.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                              10  thrpt   15       97.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                       50  thrpt   15    23745.206 ± 1951.899  ops/ms
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                        50  thrpt   15     1992.211 ±  163.764  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                   50  thrpt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                             50  thrpt   15       85.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                              50  thrpt   15       89.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                      100  thrpt   15    23873.071 ± 1304.847  ops/ms
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                       100  thrpt   15     2002.997 ±  109.495  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                  100  thrpt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                            100  thrpt   15      101.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                             100  thrpt   15       99.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                      200  thrpt   15    24183.965 ± 1180.545  ops/ms
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                       200  thrpt   15     2029.101 ±   99.062  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                  200  thrpt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                            200  thrpt   15       84.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                             200  thrpt   15       86.000                 ms
+
+========================================================================================================================
+Average Time
+========================================================================================================================
+
+Benchmark                                                                                (moveCount)   Mode  Cnt        Score      Error   Units
+
+JanggiNotationBenchmark.fullNotation_builder                                                      10   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                       10   avgt   15     1571.876 ±  129.173  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                  10   avgt   15     1856.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                            10   avgt   15       78.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                             10   avgt   15       77.000                 ms
+JanggiNotationBenchmark.fullNotation_builder                                                      50   avgt   15        0.006 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                       50   avgt   15     2083.906 ±   66.413  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                  50   avgt   15    12288.002 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                            50   avgt   15      104.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                             50   avgt   15      102.000                 ms
+JanggiNotationBenchmark.fullNotation_builder                                                     100   avgt   15        0.010 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                      100   avgt   15     2346.606 ±  296.747  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                 100   avgt   15    24416.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                           100   avgt   15      109.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                            100   avgt   15      110.000                 ms
+JanggiNotationBenchmark.fullNotation_builder                                                     200   avgt   15        0.022 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate                                      200   avgt   15     2155.069 ±  113.923  MB/sec
+JanggiNotationBenchmark.fullNotation_builder:·gc.alloc.rate.norm                                 200   avgt   15    48864.009 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builder:·gc.count                                           200   avgt   15      108.000             counts
+JanggiNotationBenchmark.fullNotation_builder:·gc.time                                            200   avgt   15      110.000                 ms
+JanggiNotationBenchmark.fullNotation_builderSized                                                 10   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                  10   avgt   15     2136.572 ±  188.102  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                             10   avgt   15     2448.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                       10   avgt   15      107.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                        10   avgt   15      103.000                 ms
+JanggiNotationBenchmark.fullNotation_builderSized                                                 50   avgt   15        0.005 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                  50   avgt   15     2086.080 ±  112.506  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                             50   avgt   15    11768.002 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                       50   avgt   15      104.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                        50   avgt   15      102.000                 ms
+JanggiNotationBenchmark.fullNotation_builderSized                                                100   avgt   15        0.011 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                 100   avgt   15     2059.087 ±  158.495  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                            100   avgt   15    23408.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                      100   avgt   15      103.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                       100   avgt   15      103.000                 ms
+JanggiNotationBenchmark.fullNotation_builderSized                                                200   avgt   15        0.024 ±    0.003   ms/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate                                 200   avgt   15     1922.152 ±  204.578  MB/sec
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.alloc.rate.norm                            200   avgt   15    46904.010 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.count                                      200   avgt   15       98.000             counts
+JanggiNotationBenchmark.fullNotation_builderSized:·gc.time                                       200   avgt   15       94.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                       10   avgt   15        0.010 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                        10   avgt   15     2017.379 ±  187.200  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                   10   avgt   15    20064.004 ±  250.391    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                             10   avgt   15      102.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                              10   avgt   15       98.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                       50   avgt   15        0.052 ±    0.004   ms/op
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                        50   avgt   15     1838.612 ±  112.913  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                   50   avgt   15    99064.022 ± 1251.956    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                             50   avgt   15       93.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                              50   avgt   15       91.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                      100   avgt   15        0.102 ±    0.011   ms/op
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                       100   avgt   15     1877.291 ±  202.558  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                  100   avgt   15   199608.042 ± 1251.956    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                            100   avgt   15       95.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                             100   avgt   15       95.000                 ms
+JanggiNotationBenchmark.fullNotation_format                                                      200   avgt   15        0.212 ±    0.021   ms/op
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate                                       200   avgt   15     1818.151 ±  190.098  MB/sec
+JanggiNotationBenchmark.fullNotation_format:·gc.alloc.rate.norm                                  200   avgt   15   400472.086 ± 5007.817    B/op
+JanggiNotationBenchmark.fullNotation_format:·gc.count                                            200   avgt   15       92.000             counts
+JanggiNotationBenchmark.fullNotation_format:·gc.time                                             200   avgt   15       93.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                    10   avgt   15        0.010 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                     10   avgt   15     2000.263 ±   57.263  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                                10   avgt   15    20224.004 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                          10   avgt   15      100.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                           10   avgt   15      103.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                    50   avgt   15        0.049 ±    0.003   ms/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                     50   avgt   15     1938.401 ±  129.323  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                                50   avgt   15    98264.020 ±    0.002    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                          50   avgt   15       98.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                           50   avgt   15      100.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                   100   avgt   15        0.101 ±    0.008   ms/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                    100   avgt   15     1854.257 ±  120.275  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                               100   avgt   15   196408.042 ±    0.004    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                         100   avgt   15       94.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                          100   avgt   15       93.000                 ms
+JanggiNotationBenchmark.fullNotation_formatted                                                   200   avgt   15        0.197 ±    0.011   ms/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate                                    200   avgt   15     1932.786 ±  115.948  MB/sec
+JanggiNotationBenchmark.fullNotation_formatted:·gc.alloc.rate.norm                               200   avgt   15   397272.080 ± 2503.908    B/op
+JanggiNotationBenchmark.fullNotation_formatted:·gc.count                                         200   avgt   15       97.000             counts
+JanggiNotationBenchmark.fullNotation_formatted:·gc.time                                          200   avgt   15       96.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                         10   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                          10   avgt   15     4345.511 ±  260.201  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                     10   avgt   15     4368.000 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                               10   avgt   15      140.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                                10   avgt   15      146.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                         50   avgt   15        0.008 ±    0.001   ms/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                          50   avgt   15     9043.588 ±  302.228  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                     50   avgt   15    79648.003 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                               50   avgt   15      222.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                                50   avgt   15      229.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                        100   avgt   15        0.030 ±    0.002   ms/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                         100   avgt   15     9674.773 ±  586.871  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                    100   avgt   15   304248.012 ±    0.001    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                              100   avgt   15      217.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                               100   avgt   15      234.000                 ms
+JanggiNotationBenchmark.fullNotation_plus                                                        200   avgt   15        0.122 ±    0.015   ms/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate                                         200   avgt   15     9483.720 ± 1034.666  MB/sec
+JanggiNotationBenchmark.fullNotation_plus:·gc.alloc.rate.norm                                    200   avgt   15  1198648.049 ±    0.006    B/op
+JanggiNotationBenchmark.fullNotation_plus:·gc.count                                              200   avgt   15      204.000             counts
+JanggiNotationBenchmark.fullNotation_plus:·gc.time                                               200   avgt   15      214.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                    10   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                     10   avgt   15     2295.422 ±   75.819  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                                10   avgt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                          10   avgt   15      116.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                           10   avgt   15      112.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                    50   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                     50   avgt   15     2250.980 ±  163.096  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                                50   avgt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                          50   avgt   15      113.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                           50   avgt   15      106.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                   100   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                    100   avgt   15     2150.135 ±  192.058  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                               100   avgt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                         100   avgt   15      109.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                          100   avgt   15      106.000                 ms
+JanggiNotationBenchmark.singleNotation_builder                                                   200   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate                                    200   avgt   15     2256.288 ±  143.652  MB/sec
+JanggiNotationBenchmark.singleNotation_builder:·gc.alloc.rate.norm                               200   avgt   15      280.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_builder:·gc.count                                         200   avgt   15      113.000             counts
+JanggiNotationBenchmark.singleNotation_builder:·gc.time                                          200   avgt   15      110.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                     10   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                      10   avgt   15     1961.300 ±  211.435  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                 10   avgt   15     1120.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                           10   avgt   15       98.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                            10   avgt   15       94.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                     50   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                      50   avgt   15     1992.085 ±   95.346  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                 50   avgt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                           50   avgt   15      100.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                            50   avgt   15      112.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                    100   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                     100   avgt   15     1970.024 ±  115.587  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                100   avgt   15     1120.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                          100   avgt   15      100.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                           100   avgt   15      100.000                 ms
+JanggiNotationBenchmark.singleNotation_format                                                    200   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate                                     200   avgt   15     1855.142 ±  127.838  MB/sec
+JanggiNotationBenchmark.singleNotation_format:·gc.alloc.rate.norm                                200   avgt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_format:·gc.count                                          200   avgt   15       93.000             counts
+JanggiNotationBenchmark.singleNotation_format:·gc.time                                           200   avgt   15       90.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                  10   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                   10   avgt   15     1879.485 ±  192.614  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                              10   avgt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                        10   avgt   15       96.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                         10   avgt   15       92.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                  50   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                   50   avgt   15     1969.275 ±  120.175  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                              50   avgt   15     1120.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                        50   avgt   15       91.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                         50   avgt   15       91.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                 100   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                  100   avgt   15     1832.972 ±  299.909  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                             100   avgt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                       100   avgt   15       92.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                        100   avgt   15       88.000                 ms
+JanggiNotationBenchmark.singleNotation_formatted                                                 200   avgt   15        0.001 ±    0.001   ms/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate                                  200   avgt   15     1846.807 ±  211.823  MB/sec
+JanggiNotationBenchmark.singleNotation_formatted:·gc.alloc.rate.norm                             200   avgt   15     1112.000 ±   12.520    B/op
+JanggiNotationBenchmark.singleNotation_formatted:·gc.count                                       200   avgt   15       93.000             counts
+JanggiNotationBenchmark.singleNotation_formatted:·gc.time                                        200   avgt   15       89.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                       10   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                        10   avgt   15     1826.264 ±  182.621  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                   10   avgt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                             10   avgt   15       77.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                              10   avgt   15       71.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                       50   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                        50   avgt   15     1833.150 ±  209.792  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                   50   avgt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                             50   avgt   15       93.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                              50   avgt   15       89.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                      100   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                       100   avgt   15     1688.640 ±  240.165  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                  100   avgt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                            100   avgt   15       69.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                             100   avgt   15       67.000                 ms
+JanggiNotationBenchmark.singleNotation_plus                                                      200   avgt   15       ≈ 10⁻⁴              ms/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate                                       200   avgt   15     1374.959 ±  311.055  MB/sec
+JanggiNotationBenchmark.singleNotation_plus:·gc.alloc.rate.norm                                  200   avgt   15       88.000 ±    0.001    B/op
+JanggiNotationBenchmark.singleNotation_plus:·gc.count                                            200   avgt   15       59.000             counts
+JanggiNotationBenchmark.singleNotation_plus:·gc.time                                             200   avgt   15       65.000                 ms
